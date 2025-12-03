@@ -38,15 +38,21 @@ header {
     justify-content: space-between;
 }
 
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .espaco-esquerda {
-    width: 80px; /* só para equilibrar visualmente */
+    width: 80px; /* largura do logo para espaçar */
 }
 
 .menu-desktop {
     display: flex;
     gap: 40px;
     justify-content: center;
-    flex: 1;  /* garante centralização */
+    flex: 1;
 }
 
 .btn-tema {
@@ -122,6 +128,47 @@ header {
 }
 
 .btn-tema:focus {
+    outline: none;
+}
+
+/* ================================
+   BOTÃO DE TEMA mobile (claro/escuro)
+================================ */
+
+.btn-tema-mobile {
+    margin-left: 20px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        4px 4px 10px rgba(0,0,0,0.15),
+        -4px -4px 10px rgba(255,255,255,0.7);
+
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.btn-tema-mobile:hover {
+    transform: scale(1.1);
+    box-shadow:
+        6px 6px 14px rgba(0,0,0,0.20),
+        -6px -6px 14px rgba(255,255,255,0.8);
+}
+
+.btn-tema-mobile:active {
+    transform: scale(0.9);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.btn-tema-mobile:focus {
     outline: none;
 }
 
@@ -303,8 +350,18 @@ button[type="submit"]:hover {
 
 /* versão escura do menu mobile */
 .dark-mode .menu-mobile {
-    background: rgba(30,30,30,0.9);
-    border-left: 1px solid rgba(255,255,255,0.08);
+    background: rgba(25,25,25,0.80);
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        -2px 0 10px rgba(0,0,0,0.45);
+
+    border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .btn-tema-mobile {
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 8px rgba(0,0,0,0.35); /* sombra mais suave e difusa */
 }
 
 .dark-mode .menu-mobile a {
@@ -327,5 +384,8 @@ button[type="submit"]:hover {
     .secao {
         margin-top: 110px;
         padding: 80px 16px 60px;
+    }
+     .btn-tema {
+        display: none;
     }
 }
