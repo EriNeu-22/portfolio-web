@@ -5,41 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio - Erich Neumann</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
-     <!-- MENU SUPERIOR -->
+
+    <!-- Cabeçalho fixo com menu -->
     <header>
-        <nav>
+    <div class="topo">
+
+        <!-- coluna esquerda (vazia) -->
+        <div class="espaco-esquerda"></div>
+
+        <!-- menu centralizado -->
+        <nav class="menu-desktop">
             <a href="#sobre">Sobre mim</a>
             <a href="#formacao">Formação</a>
             <a href="#portfolio">Portfólio</a>
             <a href="#contato">Contato</a>
-            <button id="toggleTema" class="btn-tema">
-    <img id="iconeTema" src="https://cdn-icons-png.flaticon.com/512/6714/6714978.png" width="24">
-</button>
         </nav>
-    </header>
 
-    <!-- SEÇÃO SOBRE MIM -->
+        <!-- botão tema no canto direito -->
+        <button class="btn-tema" id="toggleTema">🌙</button>
+    </div>
+</header>
+
+    <!-- Seção Sobre -->
     <section id="sobre" class="secao">
         <h1>Sobre mim</h1>
-        <p>Escreva aqui quem você é, sua história, hobbies, interesses etc.</p>
+        <p>
+        Sou desenvolvedor focado em soluções para Microsoft Dynamics 365 Customer Service, atuando desde 2021 em projetos de suporte técnico, automação de processos e desenvolvimento de customizações. 
+        Tenho experiência em plug-ins C#, personalizações com JavaScript, HTML e CSS, criação de fluxos no Power Automate e integrações utilizando Dataverse.
+        </p>
+
+        <p>
+        Sou movido por desafios, gosto de entender problemas complexos e transformá-los em soluções práticas e eficientes. Trabalho com foco em melhorar a experiência do usuário, otimizar rotinas e garantir a estabilidade dos sistemas.
+        </p>
+
+        <p>
+        Atualmente, curso Tecnólogo em Banco de Dados na UNINTER e continuo expandindo meus conhecimentos em desenvolvimento, integração de sistemas e plataforma Power Platform.
+        </p>
     </section>
 
-    <!-- SEÇÃO FORMAÇÃO -->
+    <!-- Seção Formação -->
     <section id="formacao" class="secao">
         <h1>Formação</h1>
-        <p>Liste seus cursos, faculdade, idiomas e certificados.</p>
+
+        <ul>
+            <li><strong>Tecnólogo em Banco de Dados</strong> – UNINTER (Em andamento – desde 2025)</li>
+            <li><strong>Tecnólogo em Jogos Digitais</strong> – Faculdade Impacta (curso concluído até o último semestre – interrompido em 2019)</li>
+            <li><strong>Técnico em Jogos Digitais</strong> – ETEC Guaracy Silveira (Concluído em 2017)</li>
+        </ul>
+
+        <h2>Competências Técnicas</h2>
+        <ul>
+            <li>Dynamics 365 CE, Power Platform, Power Apps, Power Automate, Dataverse</li>
+            <li>Desenvolvimento em C#, JavaScript, HTML, CSS</li>
+            <li>SQL Server, REST API, Azure DevOps</li>
+            <li>Model-Driven Apps, automação de processos e integrações</li>
+        </ul>
+
     </section>
 
-    <!-- SEÇÃO PORTFÓLIO -->
+    <!-- Seção Portfólio -->
     <section id="portfolio" class="secao">
         <h1>Portfólio</h1>
-        <p>Adicione projetos (reais ou fictícios), links do GitHub, trabalhos etc.</p>
+
+        <h2>Projetos em Destaque</h2>
+
+        <div class="projeto">
+            <h3>Diretriz – Global Game Jam 2020</h3>
+            <p>Projeto desenvolvido durante a Global Game Jam, envolvendo criação de mecânicas, design e implementação do jogo.</p>
+            <a href="https://globalgamejam.org/2020/games/roboot-3" target="_blank">Acessar projeto</a>
+        </div>
+
+        <div class="projeto">
+            <h3>Customizações e Soluções no Dynamics 365 CE</h3>
+            <p>Desenvolvimento de plug-ins, scripts JavaScript, automações via Power Automate e melhorias funcionais para clientes da BizApp.</p>
+        </div>
+
+        <div class="projeto">
+            <h3>Integrações com Dataverse</h3>
+            <p>Implementação de integrações utilizando REST API, Dataverse e Power Platform, incluindo automações e lógica de negócios.</p>
+        </div>
+
+        <p>Em breve adicionarei novos projetos com foco em Dynamics 365, Power Platform e desenvolvimento em C#.</p>
     </section>
 
-    <!-- SEÇÃO CONTATO -->
+    <!-- Seção Contato -->
     <section id="contato" class="secao">
         <h1>Contato</h1>
 
@@ -58,7 +109,6 @@
 
         <p id="resultado"></p>
     </section>
-
 
     <script src="script.js"></script>
 </body>

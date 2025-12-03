@@ -1,3 +1,4 @@
+/* Ajustes básicos da página */
 body {
     margin: 0;
     padding: 0;
@@ -11,41 +12,127 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ----- MENU SUPERIOR ----- */
+/* ================================
+   CABEÇALHO E MENU
+================================ */
 
+/* Barra fixa no topo */
 header {
-    background-color: #ffffff;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 10;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
 }
 
-nav {
+/* Container interno do topo */
+.topo {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 20px;
+
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.espaco-esquerda {
+    width: 80px; /* só para equilibrar visualmente */
+}
+
+.menu-desktop {
+    display: flex;
+    gap: 40px;
     justify-content: center;
+    flex: 1;  /* garante centralização */
+}
+
+.btn-tema {
+    margin-left: 20px;
+}
+
+
+/* Menu desktop alinhado na direita */
+.menu-desktop {
+    display: flex;
+    align-items: center;
     gap: 40px;
 }
 
-nav a {
+/* Links do menu */
+.menu-desktop a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    font-size: 15px;
 }
 
-nav a:hover {
+.menu-desktop a:hover {
     color: #007bff;
 }
 
-/* ----- SEÇÕES ----- */
+/* Botão hambúrguer - desktop fica escondido */
+.btn-mobile {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+/* ================================
+   BOTÃO DE TEMA (claro/escuro)
+================================ */
+
+.btn-tema {
+    margin-left: 20px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* efeito “alto relevo” leve */
+    box-shadow:
+        4px 4px 10px rgba(0,0,0,0.15),
+        -4px -4px 10px rgba(255,255,255,0.7);
+
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.btn-tema:hover {
+    transform: scale(1.1);
+    box-shadow:
+        6px 6px 14px rgba(0,0,0,0.20),
+        -6px -6px 14px rgba(255,255,255,0.8);
+}
+
+.btn-tema:active {
+    transform: scale(0.9);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.btn-tema:focus {
+    outline: none;
+}
+
+/* ================================
+   SEÇÕES
+================================ */
 
 .secao {
     padding: 100px 20px;
     max-width: 900px;
-    margin: auto;
-    margin-top: 80px;
+    margin: 100px auto 40px; /* 100px por causa do header fixo */
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
@@ -56,7 +143,9 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-/* ----- FORMULÁRIO ----- */
+/* ================================
+   FORMULÁRIO DE CONTATO
+================================ */
 
 form {
     display: flex;
@@ -69,7 +158,8 @@ label {
     font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -90,10 +180,8 @@ textarea {
     resize: vertical;
 }
 
-/* ----- BOTÃO NORMAL (Enviar) ----- */
-
-/* Aplica APENAS ao botão do formulário */
-button:not(.btn-tema) {
+/* Botão padrão do formulário */
+button[type="submit"] {
     padding: 12px;
     font-size: 16px;
     font-weight: bold;
@@ -104,67 +192,13 @@ button:not(.btn-tema) {
     cursor: pointer;
 }
 
-button:not(.btn-tema):hover {
+button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* ----- BOTÃO DE TEMA ----- */
-
-.btn-tema {
-    background: rgba(0,0,0,0.05);
-    border: none;
-    cursor: pointer;
-    margin-left: 20px;
-    padding: 8px;
-    border-radius: 50%;
-    transition: 
-        transform 0.15s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease;
-    
-    box-shadow:
-        4px 4px 10px rgba(0,0,0,0.15),   /* sombra profunda */
-        -4px -4px 10px rgba(255,255,255,0.7); /* luz superior */
-}
-
-/* Hover: cresce e aumenta sombra */
-.btn-tema:hover {
-    transform: scale(1.15);
-    box-shadow:
-        6px 6px 14px rgba(0,0,0,0.20),
-        -6px -6px 14px rgba(255,255,255,0.8);
-}
-
-/* Clique: afunda */
-.btn-tema:active {
-    transform: scale(0.90);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.20);
-}
-
-/* Remove foco feio */
-.btn-tema:focus,
-.btn-tema:focus-visible {
-    outline: none !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-/* Tema escuro: ajustar fundo e borda */
-.dark-mode .btn-tema {
-    background: rgba(255,255,255,0.08);
-    border: none;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-
-.dark-mode .btn-tema:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-}
-
-.dark-mode .btn-tema:active {
-    box-shadow: 0 1px 4px rgba(0,0,0,0.6);
-}
-
-
-/* ----- TEMA ESCURO ----- */
+/* ================================
+   TEMA ESCURO
+================================ */
 
 .dark-mode {
     background-color: #1e1e1e;
@@ -176,8 +210,18 @@ button:not(.btn-tema):hover {
     box-shadow: none;
 }
 
-.dark-mode nav a {
+/* Botão hambúrguer no tema escuro */
+.dark-mode .btn-mobile {
     color: #f1f1f1;
+}
+
+
+.dark-mode .menu-desktop a {
+    color: #f1f1f1;
+}
+
+.dark-mode .menu-desktop a:hover {
+    color: #4da3ff;
 }
 
 .dark-mode .secao {
@@ -193,26 +237,95 @@ button:not(.btn-tema):hover {
     border: 1px solid #777;
 }
 
-.dark-mode button:not(.btn-tema) {
+.dark-mode button[type="submit"] {
     background-color: #0056b3;
-    color: white;
 }
 
-/* ----- RESPONSIVIDADE ----- */
+/* Botão de tema no escuro */
+.dark-mode .btn-tema {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* ============== MENU MOBILE ================ */
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    padding-top: 120px;
+
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(0,0,0,0.05);
+    box-shadow: -4px 0 25px rgba(0,0,0,0.25);
+
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 90;
+}
+
+/* quando estiver ativo, entra na tela e passa a receber clique */
+.menu-mobile.ativo {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* links dentro do menu mobile */
+.menu-mobile a {
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+}
+
+.menu-mobile a:hover {
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+/* botão de tema dentro do menu mobile */
+.btn-tema-mobile {
+    margin-top: 40px;
+}
+
+/* versão escura do menu mobile */
+.dark-mode .menu-mobile {
+    background: rgba(30,30,30,0.9);
+    border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.dark-mode .menu-mobile a {
+    color: #eee;
+}
+
 @media (max-width: 768px) {
 
-    nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+    /* some com o menu tradicional no mobile */
+    .menu-desktop {
+        display: none;
+    }
+
+    .btn-mobile {
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
     }
 
     .secao {
+        margin-top: 110px;
         padding: 80px 16px 60px;
-        margin-top: 90px;
-    }
-
-    body {
-        font-size: 16px;
     }
 }
